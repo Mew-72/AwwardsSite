@@ -84,7 +84,7 @@ body::-webkit-scrollbar {
                 }
 
                 h1 {
-                    @apply uppercase 2xl:text-[8.5rem] md:text-[6.5rem] text-[3.3rem] font-bold text-[#fce1cd] leading-[9vw] tracking-[-.35vw] 2xl:px-[1.2vw] px-3 2xl:pb-[1vw] pb-5 2xl:py-0 py-3;
+                    @apply uppercase 2xl:text-[8.5rem] md:text-[6.5rem] text-[3.3rem] font-bold text-[#fce1cd] leading-[9vw] tracking-[-.35vw] 2xl:px-[1.2vw] px-3 2xl:pb-[1vw] pb-7 2xl:py-0 py-3;
                 }
             }
 
@@ -173,7 +173,7 @@ body::-webkit-scrollbar {
         @apply min-h-dvh 2xl:h-[120dvh] overflow-hidden relative;
 
         .big-img {
-            @apply w-full absolute 2xl:h-full md:h-2/3 h-1/2 left-0 bottom-0 object-bottom 2xl:object-contain object-cover;
+            @apply w-full absolute 2xl:h-full md:h-full h-1/2 left-0 bottom-0 object-bottom 2xl:object-contain object-cover;
         }
 
         .nutrition-title {
@@ -213,15 +213,15 @@ body::-webkit-scrollbar {
         }
 
         .second-title {
-            @apply rotate-[-1deg] md:-translate-y-5;
+            @apply rotate-[-1deg] md:-translate-y-9 z-8;
         }
 
         .third-title {
-            @apply rotate-[1deg] md:-translate-y-12 relative z-10;
+            @apply  rotate-[5deg] md:-translate-y-14 relative z-10;
         }
 
         .fourth-title {
-            @apply rotate-[-5deg] md:-translate-y-12;
+            @apply rotate-[-6deg] md:-translate-y-18;
         }
 
         .vd-pin-section {
