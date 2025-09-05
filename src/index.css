@@ -219,7 +219,7 @@ body::-webkit-scrollbar {
         }
 
         .vd-pin-section {
-            @apply md:h-[110vh] h-dvh overflow-hidden md: !-translate-y-[15%] md:mt-0 mt-20;
+            @apply md:h-[110vh] h-dvh overflow-hidden md:!-translate-y-[15%] md:mt-0 mt-20;
 
             video {
                 @apply size-full absolute inset-0 object-cover;
