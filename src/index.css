@@ -77,7 +77,7 @@ body::-webkit-scrollbar {
             }
 
             .hero-text-scroll {
-                @apply rotate-[-3deg] mb-8 border-[.5vw] border-milk md:top-1/2 mt-24;
+                @apply rotate-[-3deg] mb-8 border-[.5vw] border-milk;
 
                 .hero-subtitle {
                     @apply bg-mid-brown;
@@ -95,6 +95,12 @@ body::-webkit-scrollbar {
             .hero-button {
                 @apply md:mt-16 mt-10 text-dark-brown bg-light-brown uppercase font-bold text-lg rounded-full md:p-5 p-3 md:px-16 px-10;
             }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .hero-text-scroll {
+            @apply mt-24;
         }
     }
 
