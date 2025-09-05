@@ -1,6 +1,6 @@
 <!-- Tip: Replace the banner path with your own image (recommended: 1600×500 or similar) -->
 <div align="center">
-  <img src="./public/branding/banner.png" alt="Splyt — Awwwards‑Inspired Landing Page" width="100%" style="max-width:1200px;border-radius:12px;" />
+  <img src="./public/images/nav-logo.svg" width="500px"alt="Splyt — Awwwards‑Inspired Landing Page" width="100%" style="max-width:1200px;border-radius:12px;" />
   <h1>Splyt — Awwwards‑Inspired Landing Page</h1>
   <p>A modern, animated landing page for the Splyt beverage brand with rich visuals and scroll‑driven motion.</p>
 
