@@ -31,7 +31,7 @@ const NutritionSection = () => {
                 trigger: ".nutrition-section",
                 start: "top 80%",
                 end: "bottom center",
-                scrub: true,
+                // scrub: true,
                 // markers:true,
             }
         })
