@@ -16,7 +16,7 @@ const VideoPin = () => {
                     start: "-15% top",
                     end: "200% top",
                     scrub: 1.5,
-                    markers: true,
+                    // markers: true,
                     pin: true,
                 }
             })
