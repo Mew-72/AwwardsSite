@@ -77,7 +77,7 @@ body::-webkit-scrollbar {
             }
 
             .hero-text-scroll {
-                @apply rotate-[-3deg] mb-8 border-[.5vw] border-milk;
+                @apply rotate-[-3deg] mb-8 border-[.5vw] border-milk md:top-1/2 mt-24;
 
                 .hero-subtitle {
                     @apply bg-mid-brown;
