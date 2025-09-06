@@ -2,8 +2,14 @@ import {gsap,ScrollTrigger} from "gsap/all"
 import ClipPathTitle from "../components/ClipPathTitle"
 import { useGSAP } from "@gsap/react"
 import VideoPin from "../components/VideoPin"
+import { useMediaQuery } from "react-responsive"
 
 const BenefitSection = () => {
+
+    const isMobile = useMediaQuery({
+        query: "(max-width: 768px)",
+    })
+
     useGSAP(() => {
         const benefitTl = gsap.timeline({
             delay: 1,
@@ -79,7 +85,8 @@ const BenefitSection = () => {
                 <VideoPin />
             </div>
 
-            <h1 className="general-title text-[#222123] text-center pb-4 skew-3 bg-amber-50">Unlock the Advantages Now</h1>
+            {isMobile && <h1 className="2xl:text-[8.5rem] md:text-8xl text-5xl font-bold uppercase leading-[12.5vw] tracking-[-.35vw] text-[#222123] text-center pb-4 skew-3 bg-amber-50">Unlock the Advantages Now</h1> }
+            { !isMobile && <h1 className="general-title text-[#222123] text-center pb-4 skew-3 bg-amber-50">Unlock the Advantages Now</h1> }
       </section>
   )
 }
