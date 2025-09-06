@@ -75,9 +75,11 @@ const BenefitSection = () => {
                 </div>
             </div>
 
-            <div className="relative overlay-box">
+            <div className="relative overlay-box h-fit">
                 <VideoPin />
             </div>
+
+            <h1 className="general-title text-[#222123] text-center pb-4 skew-3 bg-amber-50">Unlock the Advantages Now</h1>
       </section>
   )
 }

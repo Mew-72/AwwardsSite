@@ -225,7 +225,7 @@ body::-webkit-scrollbar {
         }
 
         .vd-pin-section {
-            @apply md:h-[110vh] h-dvh overflow-hidden md:!-translate-y-[15%] md:mt-0 mt-20;
+            @apply md:h-[110vh] h-dvh overflow-hidden md:mt-0 mt-20;
 
             video {
                 @apply size-full absolute inset-0 object-cover;
@@ -296,3 +296,17 @@ body::-webkit-scrollbar {
         transform: rotate(360deg);
     }
 }
+
+/* You can target the pin-spacer using a specific data attribute or its parent */
+/* Let's say your .vd-pin-section has an ID or you can target its direct child */
+/* This is a general example and might not work for your specific DOM */
+/* .vd-pin-section+div {
+    height: fit-content !important;
+    padding: 0 0 0 !important;
+} */
+
+/* Or you can try a more specific selector if you can find one in DevTools */
+/* div[data-pin-type="spacer"] {
+    height: fit-content !important;
+    padding: 0 0 0 !important;
+} */

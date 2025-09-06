@@ -13,8 +13,9 @@ const VideoPin = () => {
             const pinTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".vd-pin-section",
-                    start: "-15% top",
-                    end: "200% top",
+                    // endTrigger: ".kk",
+                    start: "top top",
+                    end: "bottom top",
                     scrub: 1.5,
                     // markers: true,
                     pin: true,
@@ -30,7 +31,7 @@ const VideoPin = () => {
     })
 
     return (
-        <section className="vd-pin-section">
+        <section className="vd-pin-section h-[100vh]">
             <div className="size-full video-box" style={{ clipPath: isMobile ? "circle(100% at 50% 50%)" : "circle(10% at 50% 50%)" }}>
                 <video src="/videos/pin-video.mp4" autoPlay muted loop playsInline />
                 <div className="abs-center md:scale-100 scale-200 ">
