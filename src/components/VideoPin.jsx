@@ -37,7 +37,9 @@ const VideoPin = () => {
                 <div className="abs-center md:scale-100 scale-200 ">
                     <img src="/images/circle-text.svg" alt="" className="spin-circle" />
                     <div className="play-btn">
-                        <img src="/images/play.svg" alt="" className="size-[4vw] ml-[.5vw]" />
+                        <button className="hero-button cursor-pointer transition-all duration-300">
+                            <img src="/images/play.svg" alt="" className="size-[4vw] ml-[.5vw]" />
+                        </button>
                     </div>
                 </div>
             </div>

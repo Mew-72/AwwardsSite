@@ -64,7 +64,9 @@ const HeroSection = () => {
                         </div>
                     </div>
                     <h2>Live life to the fullest with SPYLT: Shatter boredom and embrace your inner kid with every deliciously smooth chug.</h2>
-                    <div className="hero-button"><p>Chug a SPYLT</p></div>
+                    <button className="hero-button cursor-pointer hover:bg-black hover:text-white transition-all duration-300">
+                        <p>Chug a SPYLT</p>
+                    </button>
                 </div>
             </div>
         </section>
