@@ -1,5 +1,6 @@
 import { gsap, ScrollTrigger, ScrollSmoother } from "gsap/all";
 import { useGSAP } from "@gsap/react";
+import { useMediaQuery } from "react-responsive";
 import NavBar from "./components/NavBar.jsx";
 import HeroSection from "./sections/HeroSection.jsx";
 import MessageSection from "./sections/MessageSection.jsx";
@@ -10,13 +11,20 @@ import FooterSection from "./sections/FooterSection.jsx";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const App = () => {
+    const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
     useGSAP(() => {
-        ScrollSmoother.create({
-            smooth: 3,
-            effects: true,
-            // normalizeScroll: true,
-        });
-    });
+        let smoother;
+        if (!isMobile) {
+            smoother = ScrollSmoother.create({
+                smooth: 3,
+                effects: true,
+            });
+        }
+        return () => {
+            smoother && smoother.kill();
+        };
+    }, [isMobile]);
     return (
         <main>
             <NavBar />
