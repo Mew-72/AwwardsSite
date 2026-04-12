@@ -19,43 +19,45 @@ const NutritionSection = () => {
 
 
     useGSAP(() => {
-        const titleSplit = SplitText.create(".nutrition-title", { type: "chars" });
+        document.fonts.ready.then(() => {
+            const titleSplit = SplitText.create(".nutrition-title", { type: "chars" });
 
-        const paraSplit = SplitText.create(".nutrition-section p", {
-            type: "words,lines",
-            linesClass: "paragraph-line",
-        });
+            const paraSplit = SplitText.create(".nutrition-section p", {
+                type: "words,lines",
+                linesClass: "paragraph-line",
+            });
 
-        const revealTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".nutrition-section",
-                start: "top 80%",
-                end: "bottom center",
-                // scrub: true,
-                // markers:true,
-            }
-        })
+            const revealTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".nutrition-section",
+                    start: "top 80%",
+                    end: "bottom center",
+                    // scrub: true,
+                    // markers:true,
+                }
+            })
 
-        revealTl.to(".nutrition-text-scroll",
-            {
-                opacity: 100,
-                // duration: 1,
+            revealTl.to(".nutrition-text-scroll",
+                {
+                    opacity: 100,
+                    // duration: 1,
+                    ease: "power1.out",
+                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+                }
+            ).from(titleSplit.chars, {
+                y: "100%",
+                stagger: 0.02,
+            }).from(paraSplit.lines, {
+                y: 150,
+                rotate: 5,
                 ease: "power1.out",
-                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
-            }
-        ).from(titleSplit.chars, {
-            y: "100%",
-            stagger: 0.02,
-        }).from(paraSplit.lines, {
-            y: 150,
-            rotate: 5,
-            ease: "power1.out",
-            stagger: 0.02,
-        }, "-=0.5").from(".list-wrapper > div", {
-            scale: 0,
-            ease: "back.out(1.7)",
-            stagger: 0.1,
-        }, "-=0.5");
+                stagger: 0.02,
+            }, "-=0.5").from(".list-wrapper > div", {
+                scale: 0,
+                ease: "back.out(1.7)",
+                stagger: 0.1,
+            }, "-=0.5");
+        })
     })
 
     return (

@@ -5,41 +5,61 @@ import { gsap, ScrollTrigger, SplitText } from "gsap/all";
 const MessageSection = () => {
 
     useGSAP(() => {
-        const firstMsgSplit = SplitText.create(".first-message", {
-            type: "words"
-        })
-        const secMsgSplit = SplitText.create(".second-message", {
-            type: "words"
-        })
-        const paraMsgSplit = SplitText.create(".message-content p",{
-            type: "words, lines",
-            linesClass: "paragraph-line",
-        });
+        document.fonts.ready.then(() => {
+            const firstMsgSplit = SplitText.create(".first-message", {
+                type: "words"
+            })
+            const secMsgSplit = SplitText.create(".second-message", {
+                type: "words"
+            })
+            const paraMsgSplit = SplitText.create(".message-content p",{
+                type: "words, lines",
+                linesClass: "paragraph-line",
+            });
 
-        gsap.to(firstMsgSplit.words, {
-            color: "#faeade",
-            ease: "power1.in",
-            stagger: 1,
-            scrollTrigger: {
-                trigger: ".message-content",
-                start: "top center",
-                end: "90% bottom",
-                scrub: true,
-                // markers: true,
-            }
-        })
+            gsap.to(firstMsgSplit.words, {
+                color: "#faeade",
+                ease: "power1.in",
+                stagger: 1,
+                scrollTrigger: {
+                    trigger: ".message-content",
+                    start: "top center",
+                    end: "90% bottom",
+                    scrub: true,
+                    // markers: true,
+                }
+            })
 
-        gsap.to(secMsgSplit.words, {
-            color: "#faeade",
-            ease: "power1.in",
-            stagger: 1,
-            scrollTrigger: {
-                trigger: ".second-message",
-                start: "top center",
-                end: "bottom center",
-                scrub: true,
-                // markers: true,
-            }
+            gsap.to(secMsgSplit.words, {
+                color: "#faeade",
+                ease: "power1.in",
+                stagger: 1,
+                scrollTrigger: {
+                    trigger: ".second-message",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: true,
+                    // markers: true,
+                }
+            })
+
+            const paraTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".message-content p",
+                    start: "top center",
+                    // scrub: true,
+                    // markers: true
+                }
+            })
+
+            paraTl.from(paraMsgSplit.words, {
+                yPercent: 300,
+                rotate: 3,
+                ease: "power1.inOut",
+                duration: 1, 
+                stagger: 0.01,
+                
+            })
         })
 
         const revealTl = gsap.timeline({
@@ -66,24 +86,6 @@ const MessageSection = () => {
                 start: "top 80%",
                 // markers: true,
             }
-        })
-
-        const paraTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".message-content p",
-                start: "top center",
-                // scrub: true,
-                // markers: true
-            }
-        })
-
-        paraTl.from(paraMsgSplit.words, {
-            yPercent: 300,
-            rotate: 3,
-            ease: "power1.inOut",
-            duration: 1, 
-            stagger: 0.01,
-            
         })
     })
 
