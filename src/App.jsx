@@ -1,9 +1,9 @@
+import { gsap, ScrollTrigger, ScrollSmoother } from "gsap/all";
+import { useGSAP } from "@gsap/react";
 import NavBar from "./components/NavBar.jsx";
 import HeroSection from "./sections/HeroSection.jsx";
-import { gsap, ScrollTrigger, ScrollSmoother } from "gsap/all";
 import MessageSection from "./sections/MessageSection.jsx";
 import FlavorSection from "./sections/FlavorSection.jsx";
-import { useGSAP } from "@gsap/react";
 import NutritionSection from "./sections/NutritionSection.jsx";
 import BenefitSection from "./sections/BenefitSection.jsx";
 import FooterSection from "./sections/FooterSection.jsx";

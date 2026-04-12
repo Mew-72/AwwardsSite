@@ -1,12 +1,14 @@
 import { useGSAP } from "@gsap/react";
-import { gsap, ScrollTrigger, SplitText } from "gsap/all";
+import { gsap, SplitText } from "gsap/all";
+
+gsap.registerPlugin(SplitText);
 
 const links = [
     { label: "GitHub", href: "https://github.com/Mew-72" },
-    { label: "Project", href: "https://github.com/Mew-72/AwwardsSite" },
-    { label: "Instagram", href: "https://www.instagram.com/" },
-    { label: "YouTube", href: "https://www.youtube.com/" },
-    { label: "TikTok", href: "https://www.tiktok.com/" },
+    { label: "Repository", href: "https://github.com/Mew-72/AwwardsSite" },
+    { label: "Issues", href: "https://github.com/Mew-72/AwwardsSite/issues" },
+    { label: "Pull Requests", href: "https://github.com/Mew-72/AwwardsSite/pulls" },
+    { label: "Awwwards", href: "https://www.awwwards.com/" },
 ];
 
 const FooterSection = () => {
@@ -68,6 +70,10 @@ const FooterSection = () => {
                 },
                 "-=0.8"
             );
+
+        return () => {
+            footerTitle.revert();
+        };
     });
 
     return (
