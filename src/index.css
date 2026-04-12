@@ -258,10 +258,34 @@ body::-webkit-scrollbar {
     }
 
     .footer-section {
-        @apply 2xl:min-h-dvh overflow-hidden relative bg-[#222123];
+        @apply min-h-dvh overflow-hidden relative bg-[#222123] flex flex-col justify-between;
+
+        .footer-glow {
+            @apply absolute -top-40 -left-20 size-[40vw] rounded-full blur-3xl bg-[#7f3b2d70];
+        }
+
+        .footer-glow-secondary {
+            @apply absolute -bottom-40 -right-24 size-[45vw] rounded-full blur-3xl bg-[#a2683370];
+        }
+
+        .footer-text-scroll {
+            @apply border-[.5vw] border-[#faeade33] rotate-[-2deg];
+        }
+
+        .footer-main-title {
+            @apply general-title bg-[#faeade] text-[#222123] md:px-10 px-4 md:pb-2 pb-1 whitespace-nowrap;
+        }
+
+        .footer-description {
+            @apply font-paragraph text-milk md:text-xl text-base max-w-2xl;
+        }
+
+        .footer-links {
+            @apply flex flex-wrap justify-center gap-4;
+        }
 
         .social-btn {
-            @apply border border-[#faeade33] md:size-[5vw] size-14 md:p-0 p-3 flex justify-center items-center rounded-full hover:bg-[#ffffff1a] transition-colors cursor-pointer;
+            @apply border border-[#faeade33] text-milk font-bold uppercase tracking-wider md:text-base text-sm md:px-7 px-5 py-3 rounded-full hover:bg-[#ffffff1a] transition-all duration-300 cursor-pointer;
         }
 
         input {
