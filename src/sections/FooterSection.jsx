@@ -13,6 +13,12 @@ const links = [
 
 const FooterSection = () => {
     useGSAP(() => {
+        // Synchronously set initial hidden states before the browser renders
+        // so elements are never visible before the animation plays (prevents flash).
+        gsap.set(".footer-description", { y: 30, opacity: 0 });
+        gsap.set(".footer-link", { scale: 0.8, y: 25, opacity: 0 });
+        gsap.set(".footer-ring", { scale: 0, opacity: 0 });
+
         // Declare outside .then() so the cleanup function can revert it
         let footerTitle;
 
@@ -38,7 +44,6 @@ const FooterSection = () => {
                     {
                         yPercent: 120,
                         opacity: 0,
-                        immediateRender: false,
                         ease: "power2.out",
                         stagger: 0.02,
                     },
@@ -49,7 +54,6 @@ const FooterSection = () => {
                     {
                         y: 30,
                         opacity: 0,
-                        immediateRender: false,
                         duration: 0.8,
                         ease: "power1.out",
                     },
@@ -61,7 +65,6 @@ const FooterSection = () => {
                         scale: 0.8,
                         y: 25,
                         opacity: 0,
-                        immediateRender: false,
                         stagger: 0.08,
                         ease: "back.out(1.7)",
                     },
@@ -72,15 +75,14 @@ const FooterSection = () => {
                     {
                         scale: 0,
                         opacity: 0,
-                        immediateRender: false,
                         stagger: 0.1,
                         ease: "back.out(1.7)",
                     },
                     "-=0.8"
                 );
 
-            // Recalculate scroll positions after async setup so ScrollSmoother
-            // and ScrollTrigger are in sync with the current page layout.
+            // Recalculate scroll positions after SplitText changes the DOM
+            // so the ScrollTrigger fires at the correct scroll depth.
             ScrollTrigger.refresh();
         });
 
