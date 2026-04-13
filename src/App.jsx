@@ -22,7 +22,7 @@ const App = () => {
             });
         }
         return () => {
-            smoother && smoother.kill();
+            smoother?.kill();
         };
     }, [isMobile]);
     return (

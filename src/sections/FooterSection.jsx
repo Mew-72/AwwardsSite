@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import { gsap, SplitText } from "gsap/all";
+import { gsap, SplitText, ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(SplitText);
 
@@ -13,8 +13,11 @@ const links = [
 
 const FooterSection = () => {
     useGSAP(() => {
+        // Declare outside .then() so the cleanup function can revert it
+        let footerTitle;
+
         document.fonts.ready.then(() => {
-            const footerTitle = SplitText.create(".footer-main-title", { type: "chars" });
+            footerTitle = SplitText.create(".footer-main-title", { type: "chars" });
 
             const footerTl = gsap.timeline({
                 scrollTrigger: {
@@ -35,6 +38,7 @@ const FooterSection = () => {
                     {
                         yPercent: 120,
                         opacity: 0,
+                        immediateRender: false,
                         ease: "power2.out",
                         stagger: 0.02,
                     },
@@ -45,6 +49,7 @@ const FooterSection = () => {
                     {
                         y: 30,
                         opacity: 0,
+                        immediateRender: false,
                         duration: 0.8,
                         ease: "power1.out",
                     },
@@ -56,6 +61,7 @@ const FooterSection = () => {
                         scale: 0.8,
                         y: 25,
                         opacity: 0,
+                        immediateRender: false,
                         stagger: 0.08,
                         ease: "back.out(1.7)",
                     },
@@ -66,16 +72,21 @@ const FooterSection = () => {
                     {
                         scale: 0,
                         opacity: 0,
+                        immediateRender: false,
                         stagger: 0.1,
                         ease: "back.out(1.7)",
                     },
                     "-=0.8"
                 );
 
-            return () => {
-                footerTitle.revert();
-            };
-        })
+            // Recalculate scroll positions after async setup so ScrollSmoother
+            // and ScrollTrigger are in sync with the current page layout.
+            ScrollTrigger.refresh();
+        });
+
+        return () => {
+            footerTitle?.revert();
+        };
     });
 
     return (
