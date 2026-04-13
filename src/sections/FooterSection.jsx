@@ -13,67 +13,69 @@ const links = [
 
 const FooterSection = () => {
     useGSAP(() => {
-        const footerTitle = SplitText.create(".footer-main-title", { type: "chars" });
+        document.fonts.ready.then(() => {
+            const footerTitle = SplitText.create(".footer-main-title", { type: "chars" });
 
-        const footerTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".footer-section",
-                start: "top 75%",
-                end: "bottom bottom",
-            },
-        });
-
-        footerTl
-            .to(".footer-text-scroll", {
-                clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-                ease: "circ.out",
-                duration: 0.8,
-            })
-            .from(
-                footerTitle.chars,
-                {
-                    yPercent: 120,
-                    opacity: 0,
-                    ease: "power2.out",
-                    stagger: 0.02,
+            const footerTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".footer-section",
+                    start: "top 75%",
+                    end: "bottom bottom",
                 },
-                "-=0.45"
-            )
-            .from(
-                ".footer-description",
-                {
-                    y: 30,
-                    opacity: 0,
+            });
+
+            footerTl
+                .to(".footer-text-scroll", {
+                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                    ease: "circ.out",
                     duration: 0.8,
-                    ease: "power1.out",
-                },
-                "-=0.4"
-            )
-            .from(
-                ".footer-link",
-                {
-                    scale: 0.8,
-                    y: 25,
-                    opacity: 0,
-                    stagger: 0.08,
-                    ease: "back.out(1.7)",
-                },
-                "-=0.3"
-            )
-            .from(
-                ".footer-ring",
-                {
-                    scale: 0,
-                    opacity: 0,
-                    stagger: 0.1,
-                    ease: "back.out(1.7)",
-                },
-                "-=0.8"
-            );
+                })
+                .from(
+                    footerTitle.chars,
+                    {
+                        yPercent: 120,
+                        opacity: 0,
+                        ease: "power2.out",
+                        stagger: 0.02,
+                    },
+                    "-=0.45"
+                )
+                .from(
+                    ".footer-description",
+                    {
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.8,
+                        ease: "power1.out",
+                    },
+                    "-=0.4"
+                )
+                .from(
+                    ".footer-link",
+                    {
+                        scale: 0.8,
+                        y: 25,
+                        opacity: 0,
+                        stagger: 0.08,
+                        ease: "back.out(1.7)",
+                    },
+                    "-=0.3"
+                )
+                .from(
+                    ".footer-ring",
+                    {
+                        scale: 0,
+                        opacity: 0,
+                        stagger: 0.1,
+                        ease: "back.out(1.7)",
+                    },
+                    "-=0.8"
+                );
 
-        return () => {
-            footerTitle.revert();
-        };
+            return () => {
+                footerTitle.revert();
+            };
+        })
     });
 
     return (
