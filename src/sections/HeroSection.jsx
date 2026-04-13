@@ -5,29 +5,30 @@ const HeroSection = () => {
     useGSAP(()=>{
         //make sure your animations run properly without any issues and extra things that need to be done can be avoided if we use useGSAP
 
-
-        const tl = gsap.timeline({
-            delay: 1,
-        })
-
-        const titleSplit = SplitText.create(".hero-title",
-            {
-                type: "chars",
+        document.fonts.ready.then(() => {
+            const tl = gsap.timeline({
+                delay: 1,
             })
 
-        tl.to(".hero-content",{
-            opacity: 1,
-            y:0,
-            ease: "power1.inOut",
-        }).to(".hero-text-scroll",{
-            clipPath:"polygon(0% 0%,100% 0, 100% 100%, 0% 100%)",
-            ease: "circ.inOut",
-            // duration: .75,
-        },"-=0.5").from(titleSplit.chars, {
-            y: "200%",
-            stagger: 0.03,
-            ease: "power2.out",
-        },"-=0.5")
+            const titleSplit = SplitText.create(".hero-title",
+                {
+                    type: "chars",
+                })
+
+            tl.to(".hero-content",{
+                opacity: 1,
+                y:0,
+                ease: "power1.inOut",
+            }).to(".hero-text-scroll",{
+                clipPath:"polygon(0% 0%,100% 0, 100% 100%, 0% 100%)",
+                ease: "circ.inOut",
+                // duration: .75,
+            },"-=0.5").from(titleSplit.chars, {
+                y: "200%",
+                stagger: 0.03,
+                ease: "power2.out",
+            },"-=0.5")
+        })
 
         const heroTl = gsap.timeline({
         scrollTrigger: {

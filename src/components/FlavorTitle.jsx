@@ -4,50 +4,47 @@ import gsap, { SplitText, ScrollTrigger } from 'gsap/all'
 const FlavorTitle = () => {
 
     useGSAP(() => {
-        const firstTextSplit = SplitText.create(".first-text-split h1", {
-            type: "chars"
-        })
-        const secondTextSplit = SplitText.create(".second-text-split h1", {
-            type: "chars"
-        })
+        document.fonts.ready.then(() => {
+            const firstTextSplit = SplitText.create(".first-text-split h1", {
+                type: "chars"
+            })
+            const secondTextSplit = SplitText.create(".second-text-split h1", {
+                type: "chars"
+            })
 
-        gsap.from(firstTextSplit.chars, {
-            yPercent: 200,
-            stagger: 0.03,
-            ease: "power1.inOut",
-            scrollTrigger: {
-                trigger: ".flavor-section",
-                // markers: true,
-                start: "top 40%"
-            }
-        })
+            gsap.from(firstTextSplit.chars, {
+                yPercent: 200,
+                stagger: 0.03,
+                ease: "power1.inOut",
+                scrollTrigger: {
+                    trigger: ".flavor-section",
+                    // markers: true,
+                    start: "top 40%"
+                }
+            })
 
-        gsap.to(".flavor-text-scroll", {
-            clipPath: "polygon(0% 0%,100% 0%, 100% 100%, 0% 100%)",
-            // duration: 0.75,
-            scrollTrigger: {
-                trigger: ".flavor-text-scroll",
-                start: "top 45%",
-                // markers: true,
-            }
-        })
+            gsap.to(".flavor-text-scroll", {
+                clipPath: "polygon(0% 0%,100% 0%, 100% 100%, 0% 100%)",
+                // duration: 0.75,
+                scrollTrigger: {
+                    trigger: ".flavor-text-scroll",
+                    start: "top 45%",
+                    // markers: true,
+                }
+            })
 
-        gsap.from(secondTextSplit.chars, {
-            yPercent: 150,
-            ease: "power1.inOut",
-            stagger: 0.015,
-            scrollTrigger: {
-                trigger: ".flavor-text-scroll",
-                start: "top 45%",
-                // markers: true,
+            gsap.from(secondTextSplit.chars, {
+                yPercent: 150,
+                ease: "power1.inOut",
+                stagger: 0.015,
+                scrollTrigger: {
+                    trigger: ".flavor-text-scroll",
+                    start: "top 45%",
+                    // markers: true,
 
-            }
+                }
+            })
         })
-        // const revealTl = gsap.timeline({
-        //     scrollTrigger: {
-        //         trigger: ""
-        //     }
-        // })
     })
 
     return (
