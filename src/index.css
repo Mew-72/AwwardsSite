@@ -57,7 +57,7 @@ body::-webkit-scrollbar {
     }
 
     .general-title {
-        @apply 2xl:text-[8.5rem] md:text-8xl text-5xl font-bold uppercase leading-[9vw] tracking-[-.35vw];
+        @apply 2xl:text-[8.5rem] md:text-8xl text-5xl font-bold uppercase md:leading-[9vw] leading-tight tracking-[-.35vw];
     }
 }
 
@@ -73,7 +73,7 @@ body::-webkit-scrollbar {
             @apply relative z-10 w-full h-full flex flex-col 2xl:justify-center items-center translate-y-10 2xl:pt-0 md:pt-32 pt-24;
 
             .hero-title {
-                @apply text-dark-brown 2xl:text-[8.5rem] md:text-[6.5rem] text-[3.3rem] font-bold uppercase leading-[9vw] tracking-[-.35vw] 2xl:mb-0 mb-5;
+                @apply text-dark-brown 2xl:text-[8.5rem] md:text-[6.5rem] text-[3.3rem] font-bold uppercase leading-[9vw] tracking-[-.35vw] 2xl:mb-0 mb-5 text-center whitespace-nowrap;
             }
 
             .hero-text-scroll {
@@ -84,7 +84,7 @@ body::-webkit-scrollbar {
                 }
 
                 h1 {
-                    @apply uppercase 2xl:text-[8.5rem] md:text-[6.5rem] text-[3.3rem] font-bold text-[#fce1cd] leading-[9vw] tracking-[-.35vw] 2xl:px-[1.2vw] px-3 2xl:pb-[1vw] pb-7 2xl:py-0 py-3;
+                    @apply uppercase 2xl:text-[8.5rem] md:text-[6.5rem] text-[3.3rem] font-bold text-[#fce1cd] leading-[9vw] tracking-[-.35vw] 2xl:px-[1.2vw] px-3 2xl:pb-[1vw] pb-7 2xl:py-0 py-3 text-center whitespace-nowrap;
                 }
             }
 
@@ -108,7 +108,7 @@ body::-webkit-scrollbar {
         @apply bg-[#7f3b2d] text-milk min-h-dvh overflow-hidden flex justify-center items-center relative z-20;
 
         .msg-wrapper {
-            @apply 2xl:text-[8.5rem] md:text-8xl text-5xl font-bold uppercase leading-[9vw] tracking-[-.35vw] flex flex-col justify-center items-center md:gap-24 gap-14;
+            @apply 2xl:text-[8.5rem] md:text-8xl text-5xl font-bold uppercase md:leading-[9vw] leading-tight tracking-[-.35vw] flex flex-col justify-center items-center md:gap-24 gap-14;
 
             h1:first-of-type {
                 @apply 2xl:max-w-4xl md:max-w-2xl max-w-xs text-center text-[#faeade10];
@@ -273,7 +273,7 @@ body::-webkit-scrollbar {
         }
 
         .footer-main-title {
-            @apply 2xl:text-[8.5rem] md:text-8xl text-5xl font-bold uppercase leading-[9vw] tracking-[-.35vw] bg-[#faeade] text-[#222123] md:px-10 px-4 md:pb-2 pb-1 whitespace-nowrap;
+            @apply 2xl:text-[8.5rem] md:text-8xl text-4xl font-bold uppercase md:leading-[9vw] leading-tight tracking-[-.35vw] bg-[#faeade] text-[#222123] md:px-10 px-4 md:pb-2 pb-1 md:whitespace-nowrap text-center;
         }
 
         .footer-description {

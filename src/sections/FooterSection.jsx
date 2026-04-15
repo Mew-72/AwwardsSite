@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import { gsap, SplitText } from "gsap/all";
+import { gsap, SplitText, ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(SplitText);
 
@@ -13,8 +13,17 @@ const links = [
 
 const FooterSection = () => {
     useGSAP(() => {
+        // Synchronously set initial hidden states before the browser renders
+        // so elements are never visible before the animation plays (prevents flash).
+        gsap.set(".footer-description", { y: 30, opacity: 0 });
+        gsap.set(".footer-link", { scale: 0.8, y: 25, opacity: 0 });
+        gsap.set(".footer-ring", { scale: 0, opacity: 0 });
+
+        // Declare outside .then() so the cleanup function can revert it
+        let footerTitle;
+
         document.fonts.ready.then(() => {
-            const footerTitle = SplitText.create(".footer-main-title", { type: "chars" });
+            footerTitle = SplitText.create(".footer-main-title", { type: "chars" });
 
             const footerTl = gsap.timeline({
                 scrollTrigger: {
@@ -72,10 +81,14 @@ const FooterSection = () => {
                     "-=0.8"
                 );
 
-            return () => {
-                footerTitle.revert();
-            };
-        })
+            // Recalculate scroll positions after SplitText changes the DOM
+            // so the ScrollTrigger fires at the correct scroll depth.
+            ScrollTrigger.refresh();
+        });
+
+        return () => {
+            footerTitle?.revert();
+        };
     });
 
     return (
