@@ -1,6 +1,6 @@
 import { nutrientLists } from "../constants";
 import { useGSAP } from "@gsap/react";
-import { gsap, SplitText, ScrollTrigger } from "gsap/all";
+import { gsap, SplitText } from "gsap/all";
 const NutritionSection = () => {
     useGSAP(() => {
         document.fonts.ready.then(() => {
@@ -78,7 +78,7 @@ const NutritionSection = () => {
                     <div className="list-wrapper">
                         {
                             nutrientLists.map((nutrient, index) => (
-                                <div key={index} className="relative flex-1 col-center">
+                                <div key={nutrient.label} className="relative flex-1 col-center">
                                     <div>
                                         <p className="md:text-lg font-paragraph">{nutrient.label}</p>
                                         <p className="font-paragraph text-sm mt-2">up to</p>
