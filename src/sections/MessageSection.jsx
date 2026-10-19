@@ -1,6 +1,5 @@
-import React from "react";
 import { useGSAP } from "@gsap/react";
-import { gsap, ScrollTrigger, SplitText } from "gsap/all";
+import { gsap, SplitText } from "gsap/all";
 
 const MessageSection = () => {
 
