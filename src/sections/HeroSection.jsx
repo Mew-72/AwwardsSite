@@ -1,5 +1,5 @@
 import {useGSAP} from "@gsap/react";
-import { SplitText, gsap, ScrollTrigger} from "gsap/all";
+import { SplitText, gsap } from "gsap/all";
 
 const HeroSection = () => {
     useGSAP(()=>{
@@ -65,9 +65,9 @@ const HeroSection = () => {
                         </div>
                     </div>
                     <h2>Live life to the fullest with SPYLT: Shatter boredom and embrace your inner kid with every deliciously smooth chug.</h2>
-                    <button className="hero-button cursor-pointer hover:bg-black hover:text-white transition-all duration-300">
-                        <p>Chug a SPYLT</p>
-                    </button>
+                    <a href="#flavors" className="hero-button inline-flex items-center gap-2 no-underline cursor-pointer hover:bg-black hover:text-white transition-all duration-300">
+                        Chug a SPYLT <span aria-hidden="true">↘</span>
+                    </a>
                 </div>
             </div>
         </section>

@@ -1,4 +1,4 @@
-import {gsap,ScrollTrigger} from "gsap/all"
+import { gsap } from "gsap/all"
 import ClipPathTitle from "../components/ClipPathTitle"
 import { useGSAP } from "@gsap/react"
 import VideoPin from "../components/VideoPin"

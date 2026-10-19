@@ -1,23 +1,7 @@
-import { useMediaQuery } from "react-responsive";
 import { nutrientLists } from "../constants";
-import { useEffect, useState } from "react";
 import { useGSAP } from "@gsap/react";
-import { gsap, SplitText, ScrollTrigger } from "gsap/all";
+import { gsap, SplitText } from "gsap/all";
 const NutritionSection = () => {
-    const isMobile = useMediaQuery({
-        query: "(max-width: 768px)",
-    })
-
-    const [lists, setlists] = useState(nutrientLists)
-    useEffect(() => {
-        if (isMobile) {
-            setlists(nutrientLists.slice(0, 3))
-        } else {
-            setlists(nutrientLists)
-        }
-    }, [isMobile])
-
-
     useGSAP(() => {
         document.fonts.ready.then(() => {
             const titleSplit = SplitText.create(".nutrition-title", { type: "chars" });
@@ -93,8 +77,8 @@ const NutritionSection = () => {
                 <div className="nutrition-box">
                     <div className="list-wrapper">
                         {
-                            lists.map((nutrient, index) => (
-                                <div key={index} className="relative flex-1 col-center">
+                            nutrientLists.map((nutrient, index) => (
+                                <div key={nutrient.label} className="relative flex-1 col-center">
                                     <div>
                                         <p className="md:text-lg font-paragraph">{nutrient.label}</p>
                                         <p className="font-paragraph text-sm mt-2">up to</p>
@@ -102,7 +86,7 @@ const NutritionSection = () => {
                                     </div>
 
                                     {
-                                        index !== lists.length - 1 && <div className="spacer-border" />
+                                        index !== nutrientLists.length - 1 && <div className="spacer-border" />
                                     }
                                 </div>
                             ))

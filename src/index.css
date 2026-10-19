@@ -2,8 +2,11 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: "ProximaNova, sans-serif";
-    src: url("/fonts/ProximaNova-Regular.otf");
+    font-family: "Proxima Nova";
+    src: url("/fonts/ProximaNova-Regular.otf") format("opentype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
 }
 
 @theme {
@@ -19,7 +22,7 @@
     --color-red: #a02128;
     --color-milk: #faeade;
     --font-sans: "Antonio", sans-serif;
-    --font-paragraph: "ProximaNova, sans-serif";
+    --font-paragraph: "Proxima Nova", sans-serif;
 }
 
 html,
@@ -64,6 +67,20 @@ body::-webkit-scrollbar {
 @layer components {
     .paragraph-line {
         @apply text-nowrap overflow-hidden;
+    }
+
+    @media (max-width: 768px) {
+        .nutrition-section .list-wrapper {
+            @apply grid grid-cols-2 gap-x-4 gap-y-4 rounded-3xl py-5 px-4;
+        }
+
+        .nutrition-section .spacer-border {
+            @apply hidden;
+        }
+
+        .nutrition-section .nutrition-box {
+            @apply static mt-8 mb-6;
+        }
     }
 
     .hero-container {
