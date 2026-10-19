@@ -1,5 +1,5 @@
 import { useGSAP } from '@gsap/react'
-import gsap, { SplitText, ScrollTrigger } from 'gsap/all'
+import gsap, { SplitText } from 'gsap/all'
 
 const FlavorTitle = () => {
 
